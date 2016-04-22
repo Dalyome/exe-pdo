@@ -1,5 +1,5 @@
 <?php
-<<<<<<< HEAD
+
 if(!empty($_POST)) {
     $lelogin = htmlspecialchars(strip_tags(trim($_POST['lelogin'])),ENT_QUOTES);
     $lepass = htmlspecialchars(strip_tags(trim($_POST['lepass'])),ENT_QUOTES);
@@ -42,11 +42,3 @@ if(!empty($_POST)) {
     }
 
 }
-=======
-/**
- * Created by PhpStorm.
- * User: Stagiaire
- * Date: 22/04/2016
- * Time: 10:38
- */
->>>>>>> 21caf29c3f39ee1f29340b330412ab8de610752d

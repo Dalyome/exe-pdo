@@ -1,9 +1,16 @@
 <?php
 
 
-if(empty($_GET)){
+if(empty($_GET)) {
     require_once "modele/accueil.php";
     require_once "vue/accueil.php";
+
+} if(empty($_GET)) {
+    require_once "vue/credit.php";
+
+}if(empty($_GET)){
+            require_once "modele/contact.php";
+            require_once "vue/contact.php";
 
 } elseif (isset($_GET['idcontinent']) && ctype_digit($_GET['idcontinent'])) {
     $continent = (int)$_GET['idcontinent'];
@@ -14,6 +21,11 @@ if(empty($_GET)){
     $recette = (int)$_GET['idrecette'];
     require_once "modele/recette.php";
     require_once "vue/recette.php";
+
+} elseif (isset($_GET['idutil']) && ctype_digit($_GET['idutil'])) {
+    $util = (int)$_GET['idutil'];
+    require_once "modele/util.php";
+    require_once "vue/util.php";
 
 } elseif (isset($_GET['idpays']) && ctype_digit($_GET['idpays'])) {
     $pays = (int)$_GET['idpays'];
