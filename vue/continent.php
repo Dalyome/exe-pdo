@@ -36,7 +36,7 @@
                 <?php
                 foreach ($recuptous as $rec) { ?>
     <article class="col-xs-12 col-sm-6 col-md-4">
-                    <h2><?= $rec->plintitule ?> | <?= $rec->nb ?></h2>
+                    <h2><a href="?idpays=<?= $rec->pid ?>"><?= $rec->plintitule ?></a> | <?= $rec->nb ?></h2>
                     <img class="img-responsive" src="<?= $rec->img ?>"/>
                     <?php
                     $titre = explode('|||', $rec->titre);

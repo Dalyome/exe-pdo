@@ -24,10 +24,10 @@
 <body>
 <div class="container">
     <?php require_once "vue/menu.php"; ?>
-    <section>
-        <article>
-            <img class="img-responsive col-sm-4 hidden-xs" src="<?= $continant->img ?>"/>
-            <div class="col-sm-8">
+    <section class="col-sm-12">
+        <article class="col-sm-12">
+            <img class="col-sm-2 hidden-xs" src="<?= $continant->img ?>"/>
+            <div class="col-sm-10">
                 <h1><?= $continant->lintitule ?></h1>
                 <div class='toggle'>
                     <div class='more'><p><?= nl2br($continant->ladesc) ?></p></div>
@@ -38,7 +38,6 @@
                 </div>
             </div>
         </article>
-        <div class="col-sm-12">
         <?php
         foreach ($recuptous as $rec) { ?>
             <article class="col-xs-12 col-sm-6 col-md-4">
@@ -49,7 +48,6 @@
             </article>
         <?php }
         ?>
-        </div>
     </section>
     <?php
     include "vue/footer.php";
