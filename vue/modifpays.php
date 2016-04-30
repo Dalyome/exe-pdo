@@ -14,9 +14,11 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <title>Earth's food - Administration</title>
+    <title><?= $titre ?></title>
     <!-- Ajout du .js pour le toggle -->
     <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+    <!-- Script pour la suppression d'un article -->
+    <script src="vue/js/monjs.js"></script>
 </head>
 <body>
 <div class="container">
@@ -24,20 +26,31 @@
     require_once "vue/menu_admin.php";
     ?>
     <section>
-        <article>
-            <h1>Bonjour <?= $_SESSION['login'] ?> !</h1>
+
+        <h2>Panneau d'administration de votre site</h2>
+        <p>Les images pour les pays sont disponibles via Wikipedia. On les choisira via la page <a href="https://fr.wikipedia.org/wiki/Galerie_des_drapeaux_des_pays_du_monde">Galerie des drapeaux des pays du monde</a> pour que la taille soit déjà optimale pour l'affichage dans les pages du blog.</p>
+        <table class="table">
+            <tr>
+                <th><a href="?modifpays=artidpays">ID</a></th>
+                <th><a href="?modifpays=artpays">Pays</a></th>
+                <th><a href="?modifpays=artcontinent">Continent</a></th>
+                <th>Image</th>
+                <th></th>
+            </tr>
             <?php
-            if ($_SESSION['ecrit']) {
+            while ($res = $requete->fetch(PDO::FETCH_ASSOC)) {
                 ?>
-                <p>Vous avez l'autorisation de rédiger <a href="?insert">un nouvel article</a>.</p><?php
-            }
-            if ($_SESSION['modifie']) {
-                ?>
-                <p>Vous avez aussi l'autorisation d'<a href="?modifsup">administrer les articles existants</a> ainsi que les <a href="?modifpays">pays existants</a>.</p>
+                <tr>
+                    <td><?= $res['id'] ?></td>
+                    <td><a href='?editionpays=<?= $res['id'] ?>'><?= $res['pays'] ?></a></td>
+                    <td><?= $res['continent'] ?></td>
+                    <td><img src="<?= $res['img'] ?>" height="30px" /></td>
+                    <td><a href='?editionpays=<?= $res['id'] ?>'><img src='vue/img/editer.gif' alt='edition'/></a></td>
+                </tr>
                 <?php
             }
             ?>
-        </article>
+        </table>
     </section>
     <script>/* <![CDATA[ */
         /*

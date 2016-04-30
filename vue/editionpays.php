@@ -29,28 +29,28 @@
 
                 <div class="row">
                 <form name="edition" method="POST" action="" class="well">
-                    <div class="form-group"><label for="titre">Titre</label>
-                    <input class="form-control" id="titre" name="letitre" type="text" value="<?= $recup_recette['titre'] ?>" required/></div>
-                    <div class="form-group"><label for="contenu">Contenu de l'article</label>
-                    <textarea class="form-control" id="contenu" name="ladesc" required><?= nl2br($recup_recette['ladesc']) ?></textarea></div>
-                    <div class="form-group"><label for="ladate">Date de publication</label>
-                    <input id="ladate" name="ladate" type="datetime" value="<?= $recup_recette['ladate'] ?>" required/></div>
-                    <div class="form-group"><label for="pays">Pays</label>
+                    <div class="form-group"><label for="titre">Nom du pays</label>
+                    <input class="form-control" id="titre" name="letitre" type="text" value="<?= $recup_pays['pays'] ?>" required/></div>
+                    <div class="form-group"><label for="contenu">Description de la cuisine pratiquée dans le pays</label>
+                    <textarea class="form-control" id="contenu" name="ladesc" required><?= nl2br($recup_pays['ladesc']) ?></textarea></div>
+                    <div class="form-group"><label for="limg">Image du pays</label>
+                        <input class="form-control" id="limg" name="limg" type="text" value="<?= $recup_pays['img'] ?>" required/></div>
+                    <div class="form-group"><label for="continent">Continent affilié au pays</label>
 
-                    <select class="form-control" id="pays" name="id_pays" required>
+                    <select class="form-control" id="continent" name="id_continent" required>
 
                         <?php
                         // variable vide qui n'affichera donc rien tant qu'elle le reste
 
-                        while ($affiche = $requetepays->fetch(PDO::FETCH_ASSOC)) {
-                            $choix_pays = "";
-                            if ($affiche['idchoicepays'] == $recup_recette['idpays']) {
-                                $choix_pays = "selected";
+                        while ($affiche = $requetecontinent->fetch(PDO::FETCH_ASSOC)) {
+                            $choix_continent = "";
+                            if ($affiche['idchoicepays'] == $recup_pays['idcontinent']) {
+                                $choix_continent = "selected";
                             }
                             // affichage de la variable contenant selected ou du vide
-                            echo "<option value='" . $affiche['idchoicepays'] . "' $choix_pays>" . $affiche['lintitule'] . "</option>";
+                            echo "<option value='" . $affiche['idchoicecontinent'] . "' $choix_continent>" . $affiche['lintitule'] . "</option>";
                             // si la variable a été remplie, on la vide (1 choix possible)
-                            $choix_pays = "";
+                            $choix_continent = "";
                         } ?>
                     </select></div>
 

@@ -14,7 +14,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <title>Panneau d'administration</title>
+    <title><?= $titre ?></title>
     <!-- Ajout du .js pour le toggle -->
     <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
     <!-- Script pour la suppression d'un article -->
@@ -26,8 +26,9 @@
     require_once "vue/menu_admin.php";
     ?>
     <section>
-
         <h2>Panneau d'administration de votre site</h2>
+        <?php
+        if ($requete->rowCount()){ ?>
         <table class="table">
             <tr>
                 <th><a href="?modifsup=arttitre">Titre</a></th>
@@ -57,6 +58,13 @@
             }
             ?>
         </table>
+            <?php
+        } else {
+            ?>
+            <h3>Il n'y a aucun article à administrer pour cette catégorie.</h3>
+            <?php
+        }
+        ?>
     </section>
     <script>/* <![CDATA[ */
         /*

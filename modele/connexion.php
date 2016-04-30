@@ -1,5 +1,5 @@
 <?php
-
+$titre = "Earth's food - Connexion";
 if(!empty($_POST)) {
     $lelogin = htmlspecialchars(strip_tags(trim($_POST['lelogin'])),ENT_QUOTES);
     $lepass = htmlspecialchars(strip_tags(trim($_POST['lepass'])),ENT_QUOTES);

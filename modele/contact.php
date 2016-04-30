@@ -1,6 +1,8 @@
 <?php
 
-$monmail = "lesbeauxgosses@gmail.com";
+$titre = "Earth's food - Contact";
+
+$monmail = "webdevcf2m@gmail.com";
 
 if(isset($_POST['lenom']))
 
