@@ -26,30 +26,30 @@
     <?php require_once "vue/menu.php"; ?>
     <section>
         <article>
-
-            <h1><?= $continant->lintitule ?></h1>
-            <p><?= $continant->img ?></p>
-            <div class='toggle'>
-                <div class='more'><p><?= nl2br($continant->ladesc) ?></p></div>
-                <div class="less">
-                    <a class="button-read-more button-read" href="#read">Cliquez pour en savoir plus !</a>
-                    <a class="button-read-less button-read" href="#read">Replier</a>
+            <img class="img-responsive col-sm-4 hidden-xs" src="<?= $continant->img ?>"/>
+            <div class="col-sm-8">
+                <h1><?= $continant->lintitule ?></h1>
+                <div class='toggle'>
+                    <div class='more'><p><?= nl2br($continant->ladesc) ?></p></div>
+                    <div class="less">
+                        <a class="button-read-more button-read" href="#read">Cliquez pour en savoir plus !</a>
+                        <a class="button-read-less button-read" href="#read">Replier</a>
+                    </div>
                 </div>
             </div>
         </article>
-        <article>
-            <?php
-            foreach ($recuptous as $rec) { ?>
-
+        <div class="col-sm-12">
+        <?php
+        foreach ($recuptous as $rec) { ?>
+            <article class="col-xs-12 col-sm-6 col-md-4">
                 <h2><?= $rec->titre ?></h2>
                 <p><?= $rec->ladate ?></p>
                 <p><?= nl2br($rec->ladescrec) ?>... <a href='?idrecette=<?= $rec->idrec ?>'>Lire la suite</a></p>
                 <hr/>
-
-            <?php }
-            ?>
-
-        </article>
+            </article>
+        <?php }
+        ?>
+        </div>
     </section>
     <?php
     include "vue/footer.php";
