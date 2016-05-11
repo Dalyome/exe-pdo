@@ -1,5 +1,5 @@
 <?php
-$titre = "Earth's food - Connexion";
+
 if(!empty($_POST)) {
     $lelogin = htmlspecialchars(strip_tags(trim($_POST['lelogin'])),ENT_QUOTES);
     $lepass = htmlspecialchars(strip_tags(trim($_POST['lepass'])),ENT_QUOTES);
@@ -10,7 +10,7 @@ if(!empty($_POST)) {
 // requête préparée
     $recup = $connexion->prepare("SELECT u.id,u.login,u.mdp,u.droit_id,u.ladesc,
                                         d.id as iddroit,d.lintitule,d.ecrit,d.modif,d.sup
-                                    FROM   util u
+                                    FROM util u
                                     INNER JOIN droit d
                                     ON u.droit_id = d.id
                                     WHERE u.login = :login AND u.mdp = :pass");

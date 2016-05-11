@@ -15,7 +15,7 @@ ORDER BY r.titre DESC
 
 $recup = $connexion->prepare(" SELECT c.lintitule as clintitule,
  p.id as pid, p.lintitule as plintitule, p.ladesc, p.img,
- COUNT(r.id) as nb, GROUP_CONCAT(r.id) as idrecette , GROUP_CONCAT(r.titre SEPARATOR '|||') as titre, GROUP_CONCAT(SUBSTR( r.ladesc,1,100) SEPARATOR '|||')  as ladescrecette
+ COUNT(r.id) as nb, GROUP_CONCAT(r.id) as idrecette , GROUP_CONCAT(r.titre SEPARATOR '|||') as titre
 FROM continent c
   INNER JOIN pays p
     ON c.id = p.continent_id

@@ -1,6 +1,6 @@
 <?php
 
-$titre = "Earth's food - Contact";
+
 
 $monmail = "webdevcf2m@gmail.com";
 
